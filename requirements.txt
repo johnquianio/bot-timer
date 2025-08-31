@@ -3,4 +3,4 @@ pytz
 aiosqlite
 tabulate
 python-dotenv
-Flask==2.3.3
+Flask
