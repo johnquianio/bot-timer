@@ -8,7 +8,10 @@ from typing import Dict, List, Optional, Tuple
 import aiosqlite
 import os
 from tabulate import tabulate
+from dotenv import load_dotenv
 
+
+load_dotenv()
 # Bot setup
 intents = discord.Intents.default()
 intents.message_content = True
@@ -570,4 +573,8 @@ async def bot_help(ctx):
 
 # Run the bot
 if __name__ == "__main__":
-    bot.run('MTQxMTM1ODY2MDM5NDc1MDAxMg.GDmXHd.OX9RlDJonsiRM99VvzGwxVlIqPCIEARKBINzRc')
+    token = os.environ.get("DISCORD_BOT_TOKEN")
+    if not token:
+        print("Error: DISCORD_BOT_TOKEN environment variable not set.")
+    else:
+        bot.run(token)

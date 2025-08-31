@@ -2,3 +2,4 @@ discord.py
 pytz
 aiosqlite
 tabulate
+python-dotenv
