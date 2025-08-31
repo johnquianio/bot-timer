@@ -1,3 +1,5 @@
+from threading import Thread
+from flask import Flask
 import discord
 from discord.ext import commands, tasks
 import asyncio
@@ -578,3 +580,20 @@ if __name__ == "__main__":
         print("Error: DISCORD_BOT_TOKEN environment variable not set.")
     else:
         bot.run(token)
+
+
+app = Flask('')
+
+
+@app.route('/')
+def home():
+    return "Bot is alive!"
+
+
+def run():
+    app.run(host='0.0.0.0', port=8080)
+
+
+# Run Flask in another thread alongside the Discord bot
+t = Thread(target=run)
+t.start()
